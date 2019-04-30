@@ -2,13 +2,13 @@ const HASH_VAR = "#tags=";
 const DEFAULT_TAGS = ["red", "blue", "purple"];
 const DIVIDER = ",";
 
-const createUrlWithTags = tags => {
+const getDefaultUrl = () => {
   const url = new URL(window.location.origin);
-  url.hash = HASH_VAR + tags.join(DIVIDER);
-  return tags && tags.length > 0 ? url.href : null;
+  url.hash = HASH_VAR + DEFAULT_TAGS.join(DIVIDER);
+  return url.href;
 };
 
-const DAFAULT_URL = createUrlWithTags(DEFAULT_TAGS);
+const DAFAULT_URL = getDefaultUrl();
 
 const getTagsFromUrl = () => {
   const hashVal = window.location.hash;
