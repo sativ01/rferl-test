@@ -1,6 +1,11 @@
 import React from "react";
 import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
 
+/**
+ * Component displays items, passed with *tagsList* in props
+ * Each item will execute action passed with *onRemoveTag* in props
+ * @returns {React.Component}
+ */
 const UrlTagsList = ({ tagsList, onRemoveTag }) => {
   const renderTagList = () => {
     if (tagsList.length > 0)

@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 /**
  * Wrapper for List of Tags components
- * @param {} props
+ * @returns {React.Component}
  */
 const styles = theme => ({
   root: {
@@ -23,7 +23,8 @@ const styles = theme => ({
     padding: theme.spacing.unit,
     textAlign: "center",
     color: theme.palette.text.secondary,
-    marginTop: "1em"
+    marginTop: "1em",
+    width: "100%"
   }
 });
 
@@ -41,19 +42,22 @@ const TagsList = props => {
         <Paper className={classes.tagsList}>
           <UrlTagsList tagsList={tagsList} onRemoveTag={handleRemoveTag} />
         </Paper>
-        <Grid item xs={8}>
-          <Paper className={classes.addTag}>
-            <AddTag onAddTag={handleAddTag} />
-          </Paper>
-        </Grid>
+      </Grid>
+      <Grid item xs={8}>
+        <Paper className={classes.addTag}>
+          <AddTag onAddTag={handleAddTag} />
+        </Paper>
       </Grid>
     </Grid>
   );
 };
 
 TagsList.propTypes = {
+  /** List of tags to be displayed */
   tagsList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  /** Action executed when list item is pressed */
   handleRemoveTag: PropTypes.func.isRequired,
+  /** Action executed when Add button is pressed */
   handleAddTag: PropTypes.func.isRequired
 };
 export default withStyles(styles)(TagsList);

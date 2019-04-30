@@ -9,6 +9,13 @@ import {
   updateUrlHash
 } from "../utils/urlUtil";
 
+/**
+ * Main Application to display Tag Items taken from URL hash
+ * If no tags available in the hash section -- default values will be displayed
+ * Will display the list 3 times as per assignment
+ * This component handles data flow. URL is the source of truth
+ * @returns {React.Component}
+ */
 export default class MainApp extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +31,8 @@ export default class MainApp extends React.Component {
       window.location.assign(DAFAULT_URL);
     }
   }
+
+  /** Subscribe to hash-change event on the page */
   componentDidMount() {
     window.addEventListener("hashchange", this.handleHashChange);
   }
@@ -50,6 +59,16 @@ export default class MainApp extends React.Component {
   render() {
     return (
       <>
+        <TagsList
+          tagsList={this.state.tagsList}
+          handleRemoveTag={this.handleRemoveTag}
+          handleAddTag={this.handleAddTag}
+        />
+        <TagsList
+          tagsList={this.state.tagsList}
+          handleRemoveTag={this.handleRemoveTag}
+          handleAddTag={this.handleAddTag}
+        />
         <TagsList
           tagsList={this.state.tagsList}
           handleRemoveTag={this.handleRemoveTag}
