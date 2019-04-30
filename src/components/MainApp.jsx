@@ -1,18 +1,17 @@
 import React from "react";
-import TagList from "./TagList";
-import AddTag from "./AddTag";
+import TagsList from "./tagsList";
+
 import {
   DEFAULT_TAGS,
   DAFAULT_URL,
   getTagsFromUrl,
   updateUrlHash
 } from "../utils/urlUtil";
-// TODO: add prop-types
 
 export default class MainApp extends React.Component {
   constructor(props) {
     super(props);
-    const tagsList = ["sdfv"]; // getTagsFromUrl();
+    const tagsList = getTagsFromUrl();
     if (tagsList && tagsList.length > 0) {
       this.state = {
         tagsList
@@ -50,11 +49,11 @@ export default class MainApp extends React.Component {
   render() {
     return (
       <>
-        <TagList
+        <TagsList
           tagsList={this.state.tagsList}
-          onRemoveTag={this.handleRemoveTag}
+          handleRemoveTag={this.handleRemoveTag}
+          handleAddTag={this.handleAddTag}
         />
-        <AddTag onAddTag={this.handleAddTag} />
       </>
     );
   }

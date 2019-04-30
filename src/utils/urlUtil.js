@@ -24,9 +24,4 @@ const updateUrlHash = newHash => {
   window.location.href = HASH_VAR + newHash.join(DIVIDER);
 };
 
-export default {
-  DEFAULT_TAGS,
-  DAFAULT_URL,
-  getTagsFromUrl,
-  updateUrlHash
-};
+export { DEFAULT_TAGS, DAFAULT_URL, getTagsFromUrl, updateUrlHash };

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class AddTag extends Component {
+export default class AddTag extends Component {
   constructor(props) {
     super(props);
     this.state = { value: "" };
@@ -32,4 +32,3 @@ class AddTag extends Component {
     );
   }
 }
-export default AddTag;

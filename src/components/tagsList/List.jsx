@@ -1,6 +1,6 @@
 import React from "react";
 
-const TagList = ({ tagsList, onRemoveTag }) => {
+const List = ({ tagsList, onRemoveTag }) => {
   const renderTagList = () => {
     if (tagsList.length > 0)
       return (
@@ -23,4 +23,4 @@ const TagList = ({ tagsList, onRemoveTag }) => {
   );
 };
 
-export default TagList;
+export default List;
